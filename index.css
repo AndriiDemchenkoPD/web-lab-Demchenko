@@ -1,284 +1,319 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    padding: 20px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-h1 {
-    font-size: 2.5em;
-    color: #333;
-}
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
 
-.ampersand {
-    color: #e91e63;
-    font-weight: bold;
-}
+        .ampersand {
+            color: #e91e63;
+            font-weight: bold;
+        }
 
-.filters {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-}
+        /* Ховаємо радіо-кнопки */
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
 
-.filter-btn {
-    padding: 15px 20px;
-    background: #e8e8e8;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: 0.3s;
-}
+        /* Фільтри за типом */
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
 
-.filter-btn:hover {
-    background: #d0d0d0;
-}
+        .filter-label {
+            padding: 15px 20px;
+            background: #e8e8e8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+            text-align: center;
+            display: block;
+        }
 
-.filter-btn.active {
-    background: #e91e63;
-    color: white;
-}
+        .filter-label:hover {
+            background: #d0d0d0;
+        }
 
-.calorie-filter {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 5px;
-}
+        input[type="radio"]:checked + .filter-label {
+            background: #e91e63;
+            color: white;
+        }
 
-.calorie-filter h3 {
-    margin-bottom: 15px;
-}
+        /* Фільтр по калоріях */
+        .calorie-filter {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
 
-.range-container {
-    position: relative;
-    height: 30px;
-}
+        .calorie-filter h3 {
+            margin-bottom: 15px;
+        }
 
-.slider-track {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    background: #ddd;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 5px;
-}
+        .calorie-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    pointer-events: none;
-    margin: 0;
-}
+        .calorie-label {
+            padding: 10px 20px;
+            background: #e8e8e8;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    pointer-events: auto;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #e91e63;
-    cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
+        .calorie-label:hover {
+            background: #d0d0d0;
+        }
 
-input[type="range"]::-moz-range-thumb {
-    pointer-events: auto;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #e91e63;
-    cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
+        input[type="radio"][name="calorie"]:checked + .calorie-label {
+            background: #e91e63;
+            color: white;
+        }
 
-.range-value {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
-    color: #e91e63;
-}
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-}
+        .card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
 
-.card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: 0.3s;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
 
-.card.hidden {
-    display: none;
-}
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
 
-.card.filtered {
-    filter: grayscale(100%);
-    opacity: 0.5;
-}
+        .card-divider {
+            height: 2px;
+            background: #e0e0e0;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-}
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
-.card-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
+        .card-title {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
 
-.card-divider {
-    height: 2px;
-    background: #e0e0e0;
-}
+        .card-name {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.card-content {
-    padding: 20px;
-}
+        .card-calories {
+            color: #666;
+            margin-top: auto;
+        }
 
-.card-title {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 5px;
-}
+        /* Логіка фільтрації за типом */
+        .card {
+            display: flex;
+        }
 
-.card-name {
-    font-size: 1.3em;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+        #filter-пиріг:checked ~ .gallery .card:not([data-type="пиріг"]) { 
+            display: none; 
+        }
+        #filter-рулет:checked ~ .gallery .card:not([data-type="рулет"]) { 
+            display: none; 
+        }
+        #filter-сирник:checked ~ .gallery .card:not([data-type="сирник"]) { 
+            display: none; 
+        }
+        #filter-тістечко:checked ~ .gallery .card:not([data-type="тістечко"]) { 
+            display: none; 
+        }
+        #filter-торт:checked ~ .gallery .card:not([data-type="торт"]) { 
+            display: none; 
+        }
 
-.card-calories {
-    color: #666;
-}
+        /* Фільтрація по калоріях: 0-300 */
+        #cal-0-300:checked ~ .gallery .card[data-calories="305"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="348"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="380"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="438"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="450"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="523"],
+        #cal-0-300:checked ~ .gallery .card[data-calories="600"] { 
+            display: none; 
+        }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    color: #666;
-    border-top: 1px solid #e0e0e0;
-    margin-top: 20px;
-}
+        /* Фільтрація по калоріях: 300-400 */
+        #cal-300-400:checked ~ .gallery .card[data-calories="265"],
+        #cal-300-400:checked ~ .gallery .card[data-calories="298"],
+        #cal-300-400:checked ~ .gallery .card[data-calories="438"],
+        #cal-300-400:checked ~ .gallery .card[data-calories="450"],
+        #cal-300-400:checked ~ .gallery .card[data-calories="523"],
+        #cal-300-400:checked ~ .gallery .card[data-calories="600"] { 
+            display: none; 
+        }
 
-.contact a {
-    color: #e91e63;
-    text-decoration: none;
-}
+        /* Фільтрація по калоріях: 400-500 */
+        #cal-400-500:checked ~ .gallery .card[data-calories="265"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="298"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="305"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="348"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="380"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="523"],
+        #cal-400-500:checked ~ .gallery .card[data-calories="600"] { 
+            display: none; 
+        }
 
-.contact a:hover {
-    text-decoration: underline;
-}
+        /* Фільтрація по калоріях: 500-600+ */
+        #cal-500-600:checked ~ .gallery .card[data-calories="265"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="298"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="305"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="348"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="380"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="438"],
+        #cal-500-600:checked ~ .gallery .card[data-calories="450"] { 
+            display: none; 
+        }
 
-/* Mobile */
-@media (max-width: 730px) {
-    body {
-        padding: 10px;
-    }
-    
-    .container {
-        padding: 15px;
-    }
-    
-    h1 {
-        font-size: 1.8em;
-    }
-    
-    .filters {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    
-    .filter-btn {
-        padding: 12px 15px;
-        font-size: 0.9em;
-    }
-    
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .card-image {
-        height: 200px;
-    }
-    
-    .calorie-filter {
-        padding: 15px;
-    }
-    
-    .range-value {
-        position: static;
-        transform: none;
-        text-align: center;
-        margin-top: 10px;
-    }
-}
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
 
-/* Tablet */
-@media (min-width: 730px) and (max-width: 1200px) {
-    .container {
-        padding: 25px;
-    }
-    
-    h1 {
-        font-size: 2.2em;
-    }
-    
-    .filters {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .card-image {
-        height: 220px;
-    }
-}
+        .contact {
+            margin-bottom: 10px;
+        }
 
-/* Desktop */
-@media (min-width: 1200px) {
-    .gallery {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+        .contact a {
+            color: #e91e63;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+        @media (max-width: 730px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .filters {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .filter-label {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-image {
+                height: 200px;
+            }
+            
+            .calorie-filter {
+                padding: 15px;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 730px) and (max-width: 1200px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .filters {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .card-image {
+                height: 220px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1200px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }

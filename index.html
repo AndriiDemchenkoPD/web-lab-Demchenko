@@ -7,188 +7,162 @@
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" defer></script>
   </head>
-  <body>
+<body>
     <div class="container">
-      <header>
-        <h1>Тортики <span class="ampersand">&</span> Тістечка</h1>
-      </header>
+        <header>
+            <h1>Тортики <span class="ampersand">&</span> Тістечка</h1>
+        </header>
 
-      <div class="filters" id="filters">
-        <button class="filter-btn active" data-filter="all">Всі</button>
-        <button class="filter-btn" data-filter="пиріг">Пиріг</button>
-        <button class="filter-btn" data-filter="рулет">Рулет</button>
-        <button class="filter-btn" data-filter="сирник">Сирники</button>
-        <button class="filter-btn" data-filter="тістечко">Тістечко</button>
-        <button class="filter-btn" data-filter="торт">Торт</button>
-      </div>
+        <!-- Всі input-и повинні бути ДО gallery для роботи CSS селектора ~ -->
+        <input type="radio" name="type" id="filter-all" checked>
+        <input type="radio" name="type" id="filter-пиріг">
+        <input type="radio" name="type" id="filter-рулет">
+        <input type="radio" name="type" id="filter-сирник">
+        <input type="radio" name="type" id="filter-тістечко">
+        <input type="radio" name="type" id="filter-торт">
+        
+        <input type="radio" name="calorie" id="cal-all" checked>
+        <input type="radio" name="calorie" id="cal-0-300">
+        <input type="radio" name="calorie" id="cal-300-400">
+        <input type="radio" name="calorie" id="cal-400-500">
+        <input type="radio" name="calorie" id="cal-500-600">
 
-      <div class="calorie-filter">
-        <h3>Калорії у порції</h3>
-
-        <div style="margin-bottom: 15px; font-weight: bold; color: #e91e63">
-          Діапазон: <span id="rangeValue">0 - 600 кКал</span>
+        <div class="filters">
+            <label for="filter-all" class="filter-label">Всі</label>
+            <label for="filter-пиріг" class="filter-label">Пиріг</label>
+            <label for="filter-рулет" class="filter-label">Рулет</label>
+            <label for="filter-сирник" class="filter-label">Сирники</label>
+            <label for="filter-тістечко" class="filter-label">Тістечко</label>
+            <label for="filter-торт" class="filter-label">Торт</label>
         </div>
 
-        <div class="range-container">
-          <div class="slider-track"></div>
-
-          <input type="range" min="0" max="600" value="0" id="minRange" />
-          <input type="range" min="0" max="600" value="600" id="maxRange" />
-        </div>
-      </div>
-
-      <div class="gallery" id="gallery">
-        <div class="card" data-type="торт" data-calories="265">
-          <img
-            src="https://rud.ua/uploads/under_recipe/01.jpg"
-            alt="Сметанковий торт"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Торт:</div>
-              <div class="card-name">Сметанковий</div>
+        <div class="calorie-filter">
+            <h3>Калорії у порції</h3>
+            <div class="calorie-options">
+                <label for="cal-all" class="calorie-label">Всі</label>
+                <label for="cal-0-300" class="calorie-label">0 - 300 кКал</label>
+                <label for="cal-300-400" class="calorie-label">300 - 400 кКал</label>
+                <label for="cal-400-500" class="calorie-label">400 - 500 кКал</label>
+                <label for="cal-500-600" class="calorie-label">500 - 600+ кКал</label>
             </div>
-            <div class="card-calories">Калорії у порції 265 кКал</div>
-          </div>
         </div>
 
-        <div class="card" data-type="тістечко" data-calories="305">
-          <img
-            src="https://europek.com.ua/-/uploads/ua/00/00/70/63/overlay-3143891359.jpg"
-            alt="Мафін"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Тістечко:</div>
-              <div class="card-name">Мафін</div>
+        <div class="gallery">
+            <div class="card" data-type="торт" data-calories="265">
+                <img src="https://rud.ua/uploads/under_recipe/01.jpg" alt="Сметанковий торт" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Торт:</div>
+                        <div class="card-name">Сметанковий</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 265 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 305 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="сирник" data-calories="450">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkL5cuzvm4rmfv8mWUPZVar6XH9aFnsATQRw&s"
-            alt="Сирники три ягоди"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Сирники:</div>
-              <div class="card-name">Три ягоди</div>
+            <div class="card" data-type="тістечко" data-calories="305">
+                <img src="https://europek.com.ua/-/uploads/ua/00/00/70/63/overlay-3143891359.jpg" alt="Мафін" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Тістечко:</div>
+                        <div class="card-name">Мафін</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 305 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 450 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="торт" data-calories="523">
-          <img
-            src="https://rud.ua/uploads/recipe/61cc1ba9a56cf.jpg"
-            alt="Смачний торт"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Торт:</div>
-              <div class="card-name">Смачний</div>
+            <div class="card" data-type="сирник" data-calories="450">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkL5cuzvm4rmfv8mWUPZVar6XH9aFnsATQRw&s" alt="Сирники три ягоди" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Сирники:</div>
+                        <div class="card-name">Три ягоди</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 450 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 523 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="рулет" data-calories="380">
-          <img
-            src="https://back.kopiyka.ua/storage/1134219/conversions/fb121bdc-ceb8-4b6d-97e5-c0d068bb2be2-original.webp"
-            alt="Святковий рулет"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Рулет:</div>
-              <div class="card-name">Святковий</div>
+            <div class="card" data-type="торт" data-calories="523">
+                <img src="https://rud.ua/uploads/recipe/61cc1ba9a56cf.jpg" alt="Смачний торт" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Торт:</div>
+                        <div class="card-name">Смачний</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 523 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 380 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="пиріг" data-calories="298">
-          <img
-            src="https://smachnenke.com.ua/wp-content/uploads/2025/07/maxresdefault-7.jpg.webp"
-            alt="Пиріг свято у бабусі"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Пиріг:</div>
-              <div class="card-name">Свято у бабусі</div>
+            <div class="card" data-type="рулет" data-calories="380">
+                <img src="https://back.kopiyka.ua/storage/1134219/conversions/fb121bdc-ceb8-4b6d-97e5-c0d068bb2be2-original.webp" alt="Святковий рулет" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Рулет:</div>
+                        <div class="card-name">Святковий</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 380 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 298 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="торт" data-calories="600">
-          <img
-            src="https://picantecooking.com/pictures/2018-11/tort-vedmedik-6404da0c58147851030354.jpg"
-            alt="Торт Ведмедик"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Торт:</div>
-              <div class="card-name">Ведмедик</div>
+            <div class="card" data-type="пиріг" data-calories="298">
+                <img src="https://smachnenke.com.ua/wp-content/uploads/2025/07/maxresdefault-7.jpg.webp" alt="Пиріг свято у бабусі" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Пиріг:</div>
+                        <div class="card-name">Свято у бабусі</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 298 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 600 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="тістечко" data-calories="438">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzwee32ByMNnW0l-piJMxOU5AoxkH8xDkkaA&s"
-            alt="Тістечко живі квіти"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Тістечко:</div>
-              <div class="card-name">Живі квіти</div>
+            <div class="card" data-type="торт" data-calories="600">
+                <img src="https://picantecooking.com/pictures/2018-11/tort-vedmedik-6404da0c58147851030354.jpg" alt="Торт Ведмедик" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Торт:</div>
+                        <div class="card-name">Ведмедик</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 600 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 438 кКал</div>
-          </div>
-        </div>
 
-        <div class="card" data-type="тістечко" data-calories="348">
-          <img
-            src="https://img-global.cpcdn.com/recipes/96c3387bd4a97335/200x200cq80/pirozhnoie-mak-limon-chiernika-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B5-%D1%84%D0%BE%D1%82%D0%BE-%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D0%B0.jpg"
-            alt="Тістечко лимонне з маком"
-            class="card-image"
-          />
-          <div class="card-divider"></div>
-          <div class="card-content">
-            <div>
-              <div class="card-title">Тістечко:</div>
-              <div class="card-name">Лимонне з маком</div>
+            <div class="card" data-type="тістечко" data-calories="438">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzwee32ByMNnW0l-piJMxOU5AoxkH8xDkkaA&s" alt="Тістечко живі квіти" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Тістечко:</div>
+                        <div class="card-name">Живі квіти</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 438 кКал</div>
+                </div>
             </div>
-            <div class="card-calories">Калорії у порції 348 кКал</div>
-          </div>
-        </div>
-      </div>
 
-      <footer>
-        <div class="contact">
-          Контакти: <a href="mailto:tortik@smakota.ua">tortik@smakota.ua</a>
+            <div class="card" data-type="тістечко" data-calories="348">
+                <img src="https://img-global.cpcdn.com/recipes/96c3387bd4a97335/200x200cq80/pirozhnoie-mak-limon-chiernika-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B5-%D1%84%D0%BE%D1%82%D0%BE-%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D0%B0.jpg" alt="Тістечко лимонне з маком" class="card-image">
+                <div class="card-divider"></div>
+                <div class="card-content">
+                    <div>
+                        <div class="card-title">Тістечко:</div>
+                        <div class="card-name">Лимонне з маком</div>
+                    </div>
+                    <div class="card-calories">Калорії у порції 348 кКал</div>
+                </div>
+            </div>
         </div>
-        <div>2019 Smakota</div>
-      </footer>
+
+        <footer>
+            <div class="contact">
+                Контакти: <a href="mailto:tortik@smakota.ua">tortik@smakota.ua</a>
+            </div>
+            <div>2019 Smakota</div>
+        </footer>
     </div>
-  </body>
+</body>
 </html>
